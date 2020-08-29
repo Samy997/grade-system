@@ -160,27 +160,27 @@ window.addEventListener('DOMContentLoaded', () => {
 			const chartConfig = new Chart(ctx, {
 				type: 'bar',
 				data: {
-					labels: ['Neg', 'P'],
+					labels: ['Standard', 'Sag Oblique'],
 					datasets: [
 						{
-							label: 'Standard',
-							data: [standard[key].neg, standard[key].p],
+							label: 'Negative',
+							data: [standard[key].neg, sagOblique[key].neg],
 							backgroundColor: [
 								'rgba(255, 99, 132, 0.2)',
-								'rgba(40, 167, 69, 0.2)'
+								'rgba(255, 99, 132, 0.2)'
 							],
-							borderColor: ['rgba(255, 99, 132, 1)', 'rgba(40, 167, 69, 1)'],
+							borderColor: ['rgba(255, 99, 132, 1)', 'rgba(255, 99, 132, 1)'],
 							borderWidth: 1,
 							barPercentage: 0.8
 						},
 						{
-							label: 'Sag Oblique',
-							data: [sagOblique[key].neg, sagOblique[key].p],
+							label: 'Positive',
+							data: [standard[key].p, sagOblique[key].p],
 							backgroundColor: [
-								'rgba(255, 99, 132, 0.2)',
+								'rgba(40, 167, 69, 0.2)',
 								'rgba(40, 167, 69, 0.2)'
 							],
-							borderColor: ['rgba(255, 99, 132, 1)', 'rgba(40, 167, 69, 1)'],
+							borderColor: ['rgba(40, 167, 69, 1)', 'rgba(40, 167, 69, 1)'],
 							borderWidth: 1,
 							barPercentage: 0.8
 						}
@@ -200,8 +200,6 @@ window.addEventListener('DOMContentLoaded', () => {
 				}
 			});
 
-			console.log(chartConfig);
-
 			// ANCHOR Append chart and header
 			chartHolder.appendChild(header);
 			chartHolder.appendChild(chart);
@@ -212,6 +210,53 @@ window.addEventListener('DOMContentLoaded', () => {
 		document
 			.querySelectorAll('.chart-holder')
 			.forEach((item) => (item.style.display = 'block'));
+
+		// ANCHOR Print comparison table
+		this.printCompareTbl(standard, sagOblique);
+	};
+
+	printCompareTbl = function (standard, sag) {
+		// // ANCHOR Create Table responsive DIV
+		// const tblResponsive = document.createElement('div');
+		// tblResponsive.classList.add('table-responsive');
+		// // ANCHOR Create Table Element
+		// const tbl = document.createElement('table');
+		// tbl.classList.add('table');
+		// // ANCHOR Create Header Element
+		// const theadEl = document.createElement('thead');
+		// // ANCHOR Create Table Body Element
+		// const tbodyEl = document.createElement('tbody');
+		// // ANCHOR Create Table Rows
+		// const trHeaderEl = document.createElement('tr');
+		// const trCmpltEl = document.createElement('tr');
+		// const trPrtEl = document.createElement('tr');
+		// // ANCHOR Table head array
+		// thArray = [
+		// 	'Type',
+		// 	'Standard MRI protocol',
+		// 	'Saggital dolique protocol',
+		// 	'Test value',
+		// 	'P-value',
+		// 	'Sig.'
+		// ];
+		// thArray.forEach((value) => {
+		// 	// ANCHOR Create th element
+		// 	const thEl = document.createElement('th');
+		//   thEl.innerHTML = value;
+		//   trHeaderEl.appendChild(thEl);
+		// });
+		// trCmpltEl.innerHTML = `
+		//   <td>Complete</td>
+		//   <td><p>Negative</p><p>Positive</p></td>
+		//   <td>
+		//   <p>${standard.complTier.neg}(${(standard.complTier.neg / 20) * 100}%)</p>
+		//   <p>${standard.complTier.p}(${(standard.complTier.p / 20) * 100}%)</p>
+		//   </td>
+		//   <td>
+		//   <p>${standard.partialTier.neg}(${(standard.partialTier.neg / 20) * 100}%)</p>
+		//   <p>${standard.partialTier.p}(${(standard.partialTier.p / 20) * 100}%)</p>
+		//   </td>
+		// `
 	};
 
 	fileInput.addEventListener('change', ExcelToJSON, this);
