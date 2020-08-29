@@ -1,0 +1,13 @@
+label {
+	width: 100%;
+}
+
+.form-control-file {
+	display: inline-block;
+	width: 20%;
+}
+
+.chart-holder {
+	overflow: hidden;
+	display: none;
+}

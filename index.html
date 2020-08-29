@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Grade System</title>
+
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+		<header>
+			<div class="collapse bg-dark" id="navbarHeader">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-md-7 py-4">
+							<h4 class="text-white">About</h4>
+							<p class="text-muted">
+								This is an easy to use grading system all you need to do is
+								upload the excel file and see the magic
+							</p>
+						</div>
+						<div class="col-sm-4 offset-md-1 py-4">
+							<h4 class="text-white">Contact</h4>
+							<ul class="list-unstyled">
+								<li>
+									<a
+										href="https://twitter.com/zamy114"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="text-white"
+										>Follow on Twitter</a
+									>
+								</li>
+								<li>
+									<a
+										href="https://www.facebook.com/2laa4"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="text-white"
+										>Like on Facebook</a
+									>
+								</li>
+								<li>
+									<a
+										href="mailto:mohamedsamyabdelgawad@gmail.com"
+										class="text-white"
+										>Email me</a
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="navbar navbar-dark bg-dark shadow-sm">
+				<div class="container d-flex justify-content-between">
+					<a href="#" class="navbar-brand d-flex align-items-center">
+						<strong>Grade System</strong>
+					</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-toggle="collapse"
+						data-target="#navbarHeader"
+						aria-controls="navbarHeader"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<main role="main">
+			<section class="jumbotron text-center">
+				<div class="container">
+					<h1>Upload file</h1>
+					<div class="form-group text-center">
+						<label for="fileInput">Upload Excel File</label>
+						<input
+							type="file"
+							class="form-control-file"
+							id="fileInput"
+							accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+						/>
+					</div>
+
+					<div id="chartRow" class="row"></div>
+
+					<div class="file-output my-4"></div>
+				</div>
+			</section>
+		</main>
+
+		<!-- ANCHOR Necessary for bootstrap -->
+		<script
+			defer
+			async
+			src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"
+		></script>
+		<script
+			defer
+			async
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"
+		></script>
+		<script
+			defer
+			async
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"
+		></script>
+
+		<!-- ANCHOR Xlsx package for reading excel-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+
+		<!-- ANCHOR Chart Js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+		<!-- ANCHOR Custom scripts -->
+		<script src="js/main.js"></script>
+	</body>
+</html>
